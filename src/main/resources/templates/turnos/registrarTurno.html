@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prueba Tecnica Certant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center my-4">TURNOS</h1>
+
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Gestión de turnos</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/turnos">Lista Turnos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h3 class="text-center">Registro Turno</h3>
+                <div class="card-body">
+                    <form th:action="@{/turnos}" th:object="${turnoDto}" method="post">
+                        <div class="form-group mb-3">
+                            <label class="form-label">Médico</label>
+                            <select th:field="${turnoDto.profesional}" class="form-select form-control" name="Profesional">
+                                <option th:value="${profesional.id}" th:each="profesional: ${profesionales}" th:text="${profesional.nombre+' '+profesional.apellido
+                                + ' - '+profesional.especialidad.nombreEspecialidad}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Paciente</label>
+                            <select th:field="${turnoDto.paciente}" class="form-select form-control" name="Paciente">
+                                <option th:value="${paciente.id}" th:each="paciente: ${pacientes}" th:text="${paciente.nombre}+' '+${paciente.apellido} "></option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="form-label">Fecha</label>
+                            <input th:field="${turnoDto.fechaTurno}" class="form-control" type="date" th:min="${fechaMinima}" th:max="${fechaMaxima}" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label">Horario</label>
+                            <input th:field="${turnoDto.horaInicioTurno}" class="form-control" type="time" min="8" max="22" step="1" required>
+                            <div class="form-text">Escribir hora en formato 24hs</div>
+                        </div>
+                        <br>
+                        <div class="box-footer">
+                            <button class="btn btn-primary">Confirmar turno</button>
+                            <a href="/turnos"  class="btn btn-danger" onclick="return confirm('Si vuelve se perderán los datos!' +
+                             ' ¿Está seguro que desea volver? ')">Volver</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
