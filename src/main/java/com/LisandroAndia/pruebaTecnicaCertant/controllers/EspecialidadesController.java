@@ -1,7 +1,6 @@
 package com.LisandroAndia.pruebaTecnicaCertant.controllers;
 
 import com.LisandroAndia.pruebaTecnicaCertant.models.Especialidad;
-import com.LisandroAndia.pruebaTecnicaCertant.repositories.EspecialidadesRepository;
 import com.LisandroAndia.pruebaTecnicaCertant.services.EspecialidadService;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;

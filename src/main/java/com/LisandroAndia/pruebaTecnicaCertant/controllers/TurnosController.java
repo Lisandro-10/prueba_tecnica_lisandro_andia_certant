@@ -31,10 +31,6 @@ public class TurnosController {
     private PacienteService pacienteService;
     @Autowired
     private EstadoTurnoService estadoTurnoService;
-    @Autowired
-    private EspecialidadService especialidadService;
-    @Autowired
-    private TurnosRepository turnosRepository;
 
     //Validar disponibilidad profesional
     public Boolean validarDisponibilidad(TurnoDto turnoDto, Profesional profesional){

@@ -15,9 +15,6 @@ public class ProfesionalesController {
     @Autowired
     private ProfesionalService profesionalService;
 
-    @Autowired
-    private HorariosAtencionService horariosAtencionService;
-
     @GetMapping({"", "/"})
     public String buscarProfesionales(Model model){
         model.addAttribute("profesionales", profesionalService.listAll());

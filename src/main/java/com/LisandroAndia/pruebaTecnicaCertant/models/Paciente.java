@@ -28,7 +28,7 @@ public class Paciente {
     private String obraSocial;
 
     @OneToMany(mappedBy = "paciente")
-    private List<Turno> turnos = new ArrayList<Turno>();
+    private List<Turno> turnos = new ArrayList<>();
 
     public int getId() {
         return id;

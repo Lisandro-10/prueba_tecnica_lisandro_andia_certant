@@ -2,7 +2,6 @@ package com.LisandroAndia.pruebaTecnicaCertant.models;
 
 import jakarta.persistence.*;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class Profesional {
     private Especialidad especialidad;
 
     @OneToMany(mappedBy = "profesional")
-    List<HorariosAtencion> horariosAtencions = new ArrayList<HorariosAtencion>();
+    List<HorariosAtencion> horariosAtencions = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -59,7 +58,7 @@ public class Profesional {
     }
 
     public List<String> getHorariosAtencions() {
-        List<String> horariosString = new ArrayList<String>();
+        List<String> horariosString = new ArrayList<>();
         for (HorariosAtencion horario : horariosAtencions) {
             horariosString.add(horario.toString());
         }

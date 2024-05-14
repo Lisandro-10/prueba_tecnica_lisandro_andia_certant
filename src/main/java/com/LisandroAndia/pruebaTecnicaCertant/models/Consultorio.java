@@ -2,7 +2,6 @@ package com.LisandroAndia.pruebaTecnicaCertant.models;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,7 +34,7 @@ public class Consultorio {
     public Consultorio() {
     }
 
-    public Consultorio(int id, int numeroConsultorio, List<Turno> turnos) {
+    public Consultorio(int id, int numeroConsultorio) {
         this.id = id;
         this.numeroConsultorio = numeroConsultorio;
     }

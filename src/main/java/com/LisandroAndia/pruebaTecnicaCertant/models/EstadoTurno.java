@@ -18,7 +18,7 @@ public class EstadoTurno {
     private String nombreEstadoTurno;
 
     @OneToMany(mappedBy = "estadoTurno")
-    private List<Turno> turnos = new ArrayList<Turno>();
+    private List<Turno> turnos = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -26,6 +26,14 @@ public class EstadoTurno {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public List<Turno> getTurnos() {
+        return turnos;
+    }
+
+    public void setTurnos(List<Turno> turnos) {
+        this.turnos = turnos;
     }
 
     public String getNombreEstadoTurno() {

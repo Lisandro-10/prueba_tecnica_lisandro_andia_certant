@@ -2,9 +2,6 @@ package com.LisandroAndia.pruebaTecnicaCertant.models;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Table(name = "horario_atencion")
 public class HorariosAtencion {
@@ -35,6 +32,14 @@ public class HorariosAtencion {
         this.id = id;
     }
 
+    public String getDiaSemana() {
+        return diaSemana;
+    }
+
+    public void setDiaSemana(String diaSemana) {
+        this.diaSemana = diaSemana;
+    }
+
     public int getFranjaHoraria() {
         return franjaHoraria;
     }
@@ -62,9 +67,10 @@ public class HorariosAtencion {
     public HorariosAtencion() {
     }
 
-    public HorariosAtencion(int id, int franjaHoraria, Profesional profesional, Consultorio consultorio) {
+    public HorariosAtencion(int id, int franjaHoraria, String diaSemana, Profesional profesional, Consultorio consultorio) {
         this.id = id;
         this.franjaHoraria = franjaHoraria;
+        this.diaSemana = diaSemana;
         this.profesional = profesional;
         this.consultorio = consultorio;
     }
